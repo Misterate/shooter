@@ -27,7 +27,7 @@ from rich.console import Console
 from rich.table import Table
 
 logger = logging.getLogger(__name__)
-console = Console()
+console = Console(width=160)
 
 
 def sigmoid_interval(
@@ -227,10 +227,10 @@ class MarketTracker:
         t = Table(title="Tracked Markets", show_header=True, header_style="bold magenta")
         t.add_column("Ticker",   style="cyan",  width=22)
         t.add_column("Title",                   width=48)
-        t.add_column("Mkt%",  justify="right",  width=6)
-        t.add_column("Our%",  justify="right",  width=6)
-        t.add_column("Edge",  justify="right",  width=7)
-        t.add_column("Hrs",   justify="right",  width=7)
+        t.add_column("Mkt%",  justify="right",  min_width=6)
+        t.add_column("Our%",  justify="right",  min_width=6)
+        t.add_column("Edge",  justify="right",  min_width=8)
+        t.add_column("Hrs",   justify="right",  min_width=7)
         t.add_column("Vel",                     width=11)
 
         for ticker, (mkt, est, _) in self._tracked.items():

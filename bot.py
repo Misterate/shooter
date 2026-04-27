@@ -22,7 +22,7 @@ from market_scanner import MarketScanner
 from news_analyzer import NewsAnalyzer
 from tracker import MarketTracker
 
-console = Console()
+console = Console(width=160)
 
 
 def _setup_logging():
